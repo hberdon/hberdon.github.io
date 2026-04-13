@@ -1,0 +1,357 @@
+/* ─── BASE ───────────────────────────────────── */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --color-text: #000;
+    --color-muted: #6A7282;
+    --color-bg: #fff;
+    --color-nav-bg: #FBFBFB;
+    --color-nav-border: rgba(0, 0, 0, 0.1);
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url('img/k2.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 60% 100% at center,
+        rgba(255, 255, 255, 0.70) 0%,
+        rgba(255, 255, 255, 0.70) 40%,
+        rgba(255, 255, 255, 0.95) 70%,
+        rgba(255, 255, 255, 1.00) 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+main, .nav-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ─── NAV ────────────────────────────────────── */
+
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+/* Spacer blanco de 32px encima de la caja del nav */
+.nav-spacer {
+    height: 32px;
+    background-color: var(--color-bg);
+}
+
+/* Caja centrada con border en los 4 lados */
+.nav-box {
+    height: 52px;
+    max-width: 720px;
+    margin: 0 auto;
+    background-color: var(--color-nav-bg);
+    border: 1px solid var(--color-nav-border);
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.nav-inner {
+    max-width: 720px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 0.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* ─── ANIMACIONES ────────────────────────────── */
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(1px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.fade-in-element {
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+/* ─── MAIN CONTENT ───────────────────────────── */
+
+.main-content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    margin-top: 160px;
+}
+
+/* ─── HERO ───────────────────────────────────── */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.title-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem 0.25rem 0.625rem;
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.terminal-prompt {
+    opacity: 0.85;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.1em;
+    background-color: #fff;
+    margin-left: 1px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.hero p {
+    font-size: 1rem;
+    line-height: 1.625;
+}
+
+/* ─── SECCIONES ──────────────────────────────── */
+
+.content-section {
+    margin-bottom: 6rem;
+    max-width: 400px;
+}
+
+.content-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* ─── EXPERIENCIA ────────────────────────────── */
+
+/* La sección de experiencia puede ser más ancha */
+.content-section:has(.exp-list) {
+    max-width: 100%;
+}
+
+.exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.exp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.exp-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.exp-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.exp-date {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+
+.exp-role {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: 0.1rem;
+}
+
+.exp-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin-top: 0.35rem;
+}
+
+.exp-desc strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.exp-tech {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-top: 0.35rem;
+    opacity: 0.75;
+}
+
+/* ─── PROYECTOS ──────────────────────────────── */
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.project-item a {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    cursor: default;
+    align-items: flex-start;
+}
+
+.project-item h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: opacity 0.15s;
+}
+
+.project-item h3:hover {
+    opacity: 0.6;
+    text-decoration: underline;
+}
+
+.project-item p {
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+/* ─── STACK ──────────────────────────────────── */
+
+.stack-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: var(--color-muted);
+}
+
+.stack-list li {
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stack-list li:last-child {
+    border-bottom: none;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+
+@media (max-width: 640px) {
+    .main-content {
+        margin-top: 190px;
+    }
+
+    .hero h1 {
+        font-size: 1.25rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.25rem;
+    }
+}
