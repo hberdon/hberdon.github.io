@@ -223,7 +223,8 @@ img {
 /* ─── EXPERIENCIA ────────────────────────────── */
 
 /* La sección de experiencia puede ser más ancha */
-.content-section:has(.exp-list) {
+.content-section:has(.exp-list),
+.content-section:has(.stack-list) {
     max-width: 100%;
 }
 
@@ -321,20 +322,30 @@ img {
 /* ─── STACK ──────────────────────────────────── */
 
 .stack-list {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     color: var(--color-muted);
 }
 
 .stack-list li {
-    padding: 0.5rem 0;
     font-size: 0.9375rem;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-weight: 400;
+    transition: color 0.15s;
+    cursor: default;
 }
 
-.stack-list li:last-child {
-    border-bottom: none;
+.stack-list li::after {
+    content: '·';
+    padding: 0 0.4rem;
+    color: var(--color-muted);
+}
+
+.stack-list li:last-child::after {
+    content: '';
+}
+
+.stack-list li:hover {
+    color: #000;
 }
 
 /* ─── RESPONSIVE ─────────────────────────────── */
