@@ -147,7 +147,6 @@ img {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
-    padding: 0 1.5rem;
     margin-top: 120px;
 }
 
@@ -166,23 +165,52 @@ img {
     margin-bottom: 1rem;
 }
 
-.title-badge {
+.terminal-window {
+    width: 100%;
+    background-color: var(--color-nav-bg);
+    border: 1px solid var(--color-nav-border);
+    border-top: none;
+    font-size: 0.8125rem;
+    margin-bottom: 0.5rem;
+}
+
+.terminal-tabs {
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--color-nav-bg);
+    border-top: 1px solid var(--color-nav-border);
+    border-bottom: 1px solid var(--color-nav-border);
+    padding: 0.4rem 0.25rem 0;
+    gap: 0.25rem;
+}
+
+.terminal-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    background-color: var(--color-nav-bg);
+    color: var(--color-text);
+    font-size: 0.75rem;
+    border: 1px solid var(--color-nav-border);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -1px;
+}
+
+.terminal-body {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.35rem 0.75rem;
-    margin: 0.25rem 0;
-    font-size: 0.75rem;
-    background-color: #111;
-    color: #fff;
-    white-space: nowrap;
+    padding: 0.6rem 1rem 0.75rem;
 }
 
 .badge-path {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: var(--color-accent);
+    color: #16a34a;
 }
 
 .badge-dir {
@@ -193,30 +221,24 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    color: #86efac;
-}
-
-
-.badge-sep {
-    width: 1px;
-    height: 0.9em;
-    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-muted);
 }
 
 .terminal-prompt {
-    color: #fff;
+    color: var(--color-muted);
     font-weight: 400;
 }
 
 .terminal-text {
     flex: 1;
+    color: var(--color-text);
 }
 
 .terminal-cursor {
     display: inline-block;
     width: 0.4em;
     height: 1.1em;
-    background-color: #000;
+    background-color: var(--color-text);
     margin-left: 2px;
     vertical-align: -0.15em;
 }
