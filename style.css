@@ -148,7 +148,7 @@ img {
     max-width: 720px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    margin-top: 160px;
+    margin-top: 120px;
 }
 
 /* ─── HERO ───────────────────────────────────── */
@@ -157,7 +157,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .hero h1 {
@@ -226,7 +226,7 @@ img {
     50%       { opacity: 0; }
 }
 
-.hero p {
+.hero-desc {
     font-size: 0.875rem;
     color: var(--color-muted);
 }
@@ -234,18 +234,18 @@ img {
 /* ─── SECCIONES ──────────────────────────────── */
 
 .content-section {
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
     max-width: 400px;
 }
 
 .content-section h2 {
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-text);
     margin-bottom: 2rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -253,7 +253,8 @@ img {
 
 /* La sección de experiencia puede ser más ancha */
 .content-section:has(.exp-list),
-.content-section:has(.stack-list) {
+.content-section:has(.stack-list),
+.content-section:has(.hero-desc) {
     max-width: 100%;
 }
 
@@ -262,6 +263,20 @@ img {
     flex-direction: column;
     gap: 2.5rem;
 }
+
+.exp-item,
+.project-item,
+.stack-list li {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.exp-item.visible,
+.project-item.visible,
+.stack-list li.visible {
+    opacity: 1;
+}
+
 
 .exp-item {
     display: grid;
@@ -277,20 +292,25 @@ img {
 }
 
 .exp-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    display: block;
 }
 
 .exp-content h3 {
+    display: inline;
     font-size: 1rem;
     font-weight: 600;
 }
 
 .exp-role {
+    display: inline;
     font-size: 0.875rem;
+    font-weight: 600;
     color: var(--color-muted);
-    margin-top: 0.1rem;
+}
+
+.exp-role:not(:empty)::before {
+    content: ' > ';
+    color: var(--color-muted);
 }
 
 .exp-desc {

@@ -55,9 +55,99 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Fase 3: hero-desc terminó — mostrar "loaded!"
                 spinner.stop();
                 spinner.parentNode && spinner.parentNode.removeChild(spinner);
-                setTerminalText("Profile loaded successfully!");
+                setTerminalText("Profile loaded successfully √");
+                setTimeout(() => typeExpItem(0, () => {
+                    setTimeout(() => typeProjectItem(0, () => {
+                        setTimeout(() => typeStackItems(0, null), 200);
+                    }), 300);
+                }), 600);
             });
         }, 400);
     }, 900);
+
+    // Experiencia: guardar textos y limpiar todos los campos
+    const expItems = document.querySelectorAll('.exp-item');
+    const expFields = ['.exp-date', 'h3', '.exp-role', '.exp-desc', '.exp-tech'];
+
+    expItems.forEach(item => {
+        expFields.forEach(sel => {
+            const el = item.querySelector(sel);
+            if (el) { el.dataset.text = el.textContent; el.textContent = ''; }
+        });
+    });
+
+    function typeString(el, text, speed, onDone) {
+        let i = 0;
+        function tick() {
+            if (i < text.length) {
+                el.textContent += text[i++];
+                setTimeout(tick, speed);
+            } else if (onDone) {
+                onDone();
+            }
+        }
+        tick();
+    }
+
+    // Proyectos: guardar textos y limpiar
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        ['h3', 'p'].forEach(sel => {
+            const el = item.querySelector(sel);
+            if (el) { el.dataset.text = el.textContent; el.textContent = ''; }
+        });
+    });
+
+    // Stack: guardar textos y limpiar
+    const stackItems = document.querySelectorAll('.stack-list li');
+    stackItems.forEach(li => { li.dataset.text = li.textContent; li.textContent = ''; });
+
+    function typeProjectItem(index, onDone) {
+        if (index >= projectItems.length) { if (onDone) onDone(); return; }
+        const item = projectItems[index];
+        item.classList.add('visible');
+        const h3 = item.querySelector('h3');
+        const p = item.querySelector('p');
+        const queue = [h3, p].filter(el => el && el.dataset.text);
+
+        function runQueue(i) {
+            if (i >= queue.length) { setTimeout(() => typeProjectItem(index + 1, onDone), 150); return; }
+            typeString(queue[i], queue[i].dataset.text, 10, () => setTimeout(() => runQueue(i + 1), 60));
+        }
+        setTimeout(() => runQueue(0), 100);
+    }
+
+    function typeStackItems(index, onDone) {
+        if (index >= stackItems.length) { if (onDone) onDone(); return; }
+        const li = stackItems[index];
+        li.classList.add('visible');
+        typeString(li, li.dataset.text, 8, () => setTimeout(() => typeStackItems(index + 1, onDone), 50));
+    }
+
+    function typeExpItem(index, onDone) {
+        if (index >= expItems.length) { if (onDone) onDone(); return; }
+        const item = expItems[index];
+        item.classList.add('visible');
+
+        const queue = expFields
+            .map(sel => ({ el: item.querySelector(sel) }))
+            .filter(({ el }) => el && el.dataset.text)
+            .map(({ el }) => ({ el, text: el.dataset.text }));
+
+        const speeds = { 'exp-date': 2, 'H3': 2, 'exp-role': 2, 'exp-desc': 2, 'exp-tech': 2 };
+
+        function runQueue(i) {
+            if (i >= queue.length) {
+                setTimeout(() => typeExpItem(index + 1, onDone), 200);
+                return;
+            }
+            const { el, text } = queue[i];
+            const cls = el.className || el.tagName;
+            const speed = speeds[cls] || speeds[el.tagName] || 15;
+            typeString(el, text, speed, () => setTimeout(() => runQueue(i + 1), 80));
+        }
+
+        setTimeout(() => runQueue(0), 150);
+    }
 
 });
