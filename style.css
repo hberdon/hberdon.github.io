@@ -223,7 +223,7 @@ img {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.6rem 1rem 0.75rem;
+    padding: 0.6rem 1.5rem 0.75rem;
 }
 
 .badge-path {
@@ -450,13 +450,31 @@ img {
 
 @media (max-width: 640px) {
     .main-content {
-        margin-top: 190px;
+        margin-top: 1rem;
+        padding: 0 1rem;
     }
 
-    .hero h1 {
-        font-size: 1.25rem;
-        flex-direction: column;
-        gap: 0.25rem;
+    .terminal-window {
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+    }
+
+    /* Tabs: solo iconos en mobile */
+    .terminal-body {
+        padding: 0.6rem 1rem 0.75rem;
+    }
+
+    .terminal-tabs-nav .terminal-tab span,
+    .terminal-tabs-nav .terminal-tab {
+        font-size: 0;
+    }
+
+    .terminal-tabs-nav .terminal-tab i {
+        font-size: 0.85rem;
+    }
+
+    .terminal-tabs-nav .terminal-tab {
+        padding: 0.3rem 0.6rem;
     }
 
     .exp-item {
@@ -468,6 +486,6 @@ img {
     }
 
     .content-section h2 {
-        font-size: 1.25rem;
+        font-size: 0.75rem;
     }
 }
