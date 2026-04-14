@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fase 2: tipear hero-desc
         setTimeout(() => {
             heroDesc.classList.add('visible');
-            typeInto(heroDesc, desc, 25, () => {
+            typeInto(heroDesc, desc, 15, () => {
                 // Fase 3: hero-desc terminó — mostrar "loaded!"
                 spinner.stop();
                 spinner.parentNode && spinner.parentNode.removeChild(spinner);
@@ -126,8 +126,28 @@ document.addEventListener("DOMContentLoaded", () => {
         typeString(li, li.dataset.text, 8, () => setTimeout(() => typeStackItems(index + 1, onDone), 50));
     }
 
+    const EXP_INITIAL = 3;
+    const loadMoreBtn = document.getElementById('expLoadMore');
+    let expMoreLoaded = false;
+
     function typeExpItem(index, onDone) {
         if (index >= expItems.length) { if (onDone) onDone(); return; }
+
+        // Parar en EXP_INITIAL la primera vez
+        if (index === EXP_INITIAL && !expMoreLoaded) {
+            if (onDone) onDone();
+            loadMoreBtn.style.display = 'flex';
+            loadMoreBtn.addEventListener('click', () => {
+                expMoreLoaded = true;
+                loadMoreBtn.style.display = 'none';
+                document.querySelectorAll('.exp-item--more').forEach(el => {
+                    el.classList.remove('exp-item--more');
+                });
+                typeExpItem(index, null);
+            }, { once: true });
+            return;
+        }
+
         const item = expItems[index];
         item.classList.add('visible');
 

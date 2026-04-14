@@ -268,7 +268,7 @@ img {
 }
 
 .hero-desc {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--color-muted);
 }
 
@@ -280,7 +280,7 @@ img {
 }
 
 .content-section:has(.visible) {
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 .content-section h2 {
@@ -289,13 +289,13 @@ img {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-text);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .content-section:has(.visible) h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* ─── EXPERIENCIA ────────────────────────────── */
@@ -347,13 +347,13 @@ img {
 
 .exp-content h3 {
     display: inline;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 600;
 }
 
 .exp-role {
     display: inline;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--color-muted);
 }
@@ -364,7 +364,7 @@ img {
 }
 
 .exp-desc {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     color: var(--color-muted);
     margin-top: 0.35rem;
@@ -376,11 +376,41 @@ img {
 }
 
 .exp-tech {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     color: var(--color-muted);
     margin-top: 0.35rem;
     opacity: 0.75;
 }
+
+.exp-item--more {
+    display: none !important;
+}
+
+.exp-load-more {
+    display: none;
+    width: 100%;
+    height: 1.2rem;
+    margin-top: 1.5rem;
+    background-color: var(--color-nav-bg);
+    border: 1px solid var(--color-nav-border);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.exp-load-more i {
+    margin-top: auto;
+    display: flex;
+}
+
+.exp-load-more:hover {
+    color: var(--color-text);
+}
+
 
 /* ─── PROYECTOS ──────────────────────────────── */
 
@@ -401,7 +431,7 @@ img {
 }
 
 .project-item h3 {
-    font-size: 1.125rem;
+    font-size: 0.875rem;
     font-weight: 500;
     transition: opacity 0.15s;
 }
@@ -412,7 +442,7 @@ img {
 }
 
 .project-item p {
-    font-size: 14px;
+    font-size: 0.8rem;
     color: var(--color-muted);
 }
 
@@ -425,7 +455,7 @@ img {
 }
 
 .stack-list li {
-    font-size: 0.9375rem;
+    font-size: 0.8rem;
     font-weight: 400;
     transition: color 0.15s;
     cursor: default;
