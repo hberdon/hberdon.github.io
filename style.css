@@ -322,7 +322,7 @@ img {
 
 .exp-item.visible {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 70px 1fr;
     gap: 0 2rem;
 }
 
@@ -339,6 +339,7 @@ img {
     color: var(--color-muted);
     padding-top: 0.2rem;
     line-height: 1.5;
+    white-space: pre-line;
 }
 
 .exp-content {

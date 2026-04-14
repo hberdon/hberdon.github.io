@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const terminalText = document.querySelector(".terminal-text");
     const heroDesc = document.querySelector(".hero-desc");
-    const desc = "+15 años de experiencia en análisis, diseño, desarrollo e implantación de arquitecturas y soluciones de software.";
+    const desc = "+15 años de experiencia en análisis, diseño, desarrollo e implantación de arquitecturas y soluciones de software. Especializado en integración de sistemas, arquitectura de microservicios, APIs y servicios web.";
     const frames = ['|', '/', '-', '\\'];
 
     function makeSpinner() {
@@ -73,7 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
     expItems.forEach(item => {
         expFields.forEach(sel => {
             const el = item.querySelector(sel);
-            if (el) { el.dataset.text = el.textContent; el.textContent = ''; }
+            if (el) {
+                el.dataset.text = sel === '.exp-date'
+                    ? el.textContent.replace(' — ', '\n')
+                    : el.textContent;
+                el.textContent = '';
+            }
         });
     });
 
