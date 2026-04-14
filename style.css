@@ -147,7 +147,8 @@ img {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
-    margin-top: 120px;
+    padding: 0 1.5rem;
+    margin-top: 85px;
 }
 
 /* ─── HERO ───────────────────────────────────── */
@@ -166,21 +167,29 @@ img {
 }
 
 .terminal-window {
-    width: 100%;
-    background-color: var(--color-nav-bg);
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    background-color: var(--color-bg);
     border: 1px solid var(--color-nav-border);
-    border-top: none;
     font-size: 0.8125rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .terminal-tabs {
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
     background-color: var(--color-nav-bg);
-    border-top: 1px solid var(--color-nav-border);
     border-bottom: 1px solid var(--color-nav-border);
     padding: 0.4rem 0.25rem 0;
+    gap: 0.3rem;
+}
+
+
+
+.terminal-tabs-nav {
+    display: flex;
+    align-items: flex-end;
     gap: 0.25rem;
 }
 
@@ -189,13 +198,24 @@ img {
     align-items: center;
     gap: 0.35rem;
     padding: 0.3rem 0.75rem;
-    background-color: var(--color-nav-bg);
-    color: var(--color-text);
+    background-color: var(--color-bg);
+    color: var(--color-muted);
     font-size: 0.75rem;
     border: 1px solid var(--color-nav-border);
-    border-bottom: none;
     border-radius: 4px 4px 0 0;
     margin-bottom: -1px;
+    font-family: var(--font-mono);
+    text-decoration: none;
+}
+
+.terminal-tab:hover {
+    color: var(--color-text);
+}
+
+.terminal-tab--active {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-bottom: none;
 }
 
 .terminal-body {

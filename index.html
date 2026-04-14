@@ -8,38 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAV FIJO: spacer blanco + caja centrada con border -->
-    <div class="nav-wrapper">
-        <div class="nav-spacer"></div>
-        <div class="nav-box">
-            <div class="nav-inner">
-                <a href="/" class="nav-logo">
-                    <img src="img/logo.svg" alt="logo" width="30" height="30">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="https://www.linkedin.com/in/hugo-berd%C3%B3n-45590b42/" target="_blank">Linkedin</a></li>
-                    <li><a href="mailto:hberdn@gmail.com">Email</a></li>
-                    <li><a href="https://github.com/hberdon" target="_blank">GitHub</a></li>
-                    <li><a href="Profile.pdf" target="_blank">CV</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+<!-- CONTENIDO PRINCIPAL -->
     <main class="main-content fade-in-element">
 
         <!-- HERO -->
         <section class="hero">
             <div class="terminal-window">
                 <div class="terminal-tabs">
-                    <span class="terminal-tab">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+<span class="terminal-tab terminal-tab--active">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
                         bash
                     </span>
+                    <div class="terminal-tabs-nav">
+                        <a class="terminal-tab" href="https://www.linkedin.com/in/hugo-berd%C3%B3n-45590b42/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                            Linkedin
+                        </a>
+                        <a class="terminal-tab" href="mailto:hberdn@gmail.com">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email
+                        </a>
+                        <a class="terminal-tab" href="https://github.com/hberdon" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+                        <a class="terminal-tab" href="Profile.pdf" target="_blank">
+                            <i class="fa-solid fa-file-lines"></i>
+                            CV
+                        </a>
+                    </div>
                 </div>
                 <div class="terminal-body">
                     <span class="badge-path">
