@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fase 2: tipear hero-desc
         setTimeout(() => {
+            heroDesc.classList.add('visible');
             typeInto(heroDesc, desc, 25, () => {
                 // Fase 3: hero-desc terminó — mostrar "loaded!"
                 spinner.stop();
@@ -78,9 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function typeString(el, text, speed, onDone) {
         let i = 0;
+        el.appendChild(terminalCursor);
         function tick() {
             if (i < text.length) {
-                el.textContent += text[i++];
+                el.insertBefore(document.createTextNode(text[i++]), terminalCursor);
                 setTimeout(tick, speed);
             } else if (onDone) {
                 onDone();

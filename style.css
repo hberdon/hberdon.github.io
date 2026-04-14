@@ -234,8 +234,12 @@ img {
 /* ─── SECCIONES ──────────────────────────────── */
 
 .content-section {
-    margin-bottom: 5rem;
+    margin-bottom: 0.5rem;
     max-width: 400px;
+}
+
+.content-section:has(.visible) {
+    margin-bottom: 5rem;
 }
 
 .content-section h2 {
@@ -244,9 +248,13 @@ img {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.content-section:has(.visible) h2 {
+    margin-bottom: 2rem;
 }
 
 /* ─── EXPERIENCIA ────────────────────────────── */
@@ -254,34 +262,35 @@ img {
 /* La sección de experiencia puede ser más ancha */
 .content-section:has(.exp-list),
 .content-section:has(.stack-list),
-.content-section:has(.hero-desc) {
+.content-section:has(.hero-desc),
+.content-section:has(.projects-list) {
     max-width: 100%;
 }
 
 .exp-list {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .exp-item,
 .project-item,
 .stack-list li {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none;
 }
 
-.exp-item.visible,
-.project-item.visible,
-.stack-list li.visible {
-    opacity: 1;
-}
-
-
-.exp-item {
+.exp-item.visible {
     display: grid;
     grid-template-columns: 110px 1fr;
     gap: 0 2rem;
+}
+
+.project-item.visible {
+    display: block;
+}
+
+.stack-list li.visible {
+    display: inline;
 }
 
 .exp-date {
