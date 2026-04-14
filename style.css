@@ -13,6 +13,7 @@
     --color-bg: #fff;
     --color-nav-bg: #FBFBFB;
     --color-nav-border: rgba(0, 0, 0, 0.1);
+    --color-accent: #79eb59;
 }
 
 html {
@@ -119,6 +120,7 @@ img {
 
 .nav-links a:hover {
     text-decoration: underline;
+    
 }
 
 /* ─── ANIMACIONES ────────────────────────────── */
@@ -176,19 +178,21 @@ img {
     margin: 0.25rem 0;
     font-size: 0.875rem;
     background-color: #000;
-    color: #fff;
+    color: #79eb59;
     transition: background-color 0.3s;
 }
 
 .terminal-prompt {
     opacity: 0.85;
+    color: #79eb59;
+    font-weight: 600;
 }
 
 .terminal-cursor {
     display: inline-block;
-    width: 0.55em;
+    width: 0.05em;
     height: 1.1em;
-    background-color: #fff;
+    background-color: var(--color-accent);
     margin-left: 1px;
     animation: blink 1s step-end infinite;
 }
