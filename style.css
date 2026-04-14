@@ -167,8 +167,7 @@ img {
 }
 
 .terminal-window {
-    width: calc(100% + 3rem);
-    margin-left: -1.5rem;
+    width: 100%;
     background-color: var(--color-bg);
     border: 1px solid var(--color-nav-border);
     font-size: 0.8125rem;
@@ -181,7 +180,7 @@ img {
     justify-content: space-between;
     background-color: var(--color-nav-bg);
     border-bottom: 1px solid var(--color-nav-border);
-    padding: 0.4rem 1.5rem 0;
+    padding: 0.4rem 0.75rem 0;
     gap: 0.3rem;
 }
 
@@ -223,7 +222,7 @@ img {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.6rem 1.5rem 0.75rem;
+    padding: 0.6rem 0.75rem 0.75rem;
 }
 
 .badge-path {
@@ -454,10 +453,6 @@ img {
         padding: 0 1rem;
     }
 
-    .terminal-window {
-        width: calc(100% + 2rem);
-        margin-left: -1rem;
-    }
 
     /* Tabs: solo iconos en mobile */
     .terminal-tabs {
