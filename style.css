@@ -28,26 +28,17 @@ body {
     line-height: 1.625;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image: url('img/k2.png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: radial-gradient(
-        ellipse 60% 100% at center,
-        rgba(255, 255, 255, 0.70) 0%,
-        rgba(255, 255, 255, 0.70) 40%,
-        rgba(255, 255, 255, 0.95) 70%,
-        rgba(255, 255, 255, 1.00) 100%
-    );
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
 main, .nav-wrapper {
